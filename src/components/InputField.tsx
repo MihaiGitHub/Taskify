@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./styles.css";
 
 // setTodo type gotten from hovering over it in App.tsx
@@ -10,9 +10,19 @@ interface Props {
 
 // define InputField type and arguments
 const InputField: React.FC<Props> = ({ todo, setTodo, handleAdd }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
   return (
-    <form className="input" onSubmit={handleAdd}>
+    <form
+      className="input"
+      onSubmit={(e) => {
+        inputRef.current?.blur();
+
+        handleAdd(e);
+      }}
+    >
       <input
+        ref={inputRef}
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
         type="input"

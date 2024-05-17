@@ -15,6 +15,7 @@ const App: React.FC = () => {
     // add new object to array
     if (todo) {
       setTodos([...todos, { id: Date.now(), todo: todo, isDone: false }]);
+      setTodo("");
     }
   };
 
