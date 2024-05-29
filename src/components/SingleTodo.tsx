@@ -3,6 +3,7 @@ import { Todo } from "../model";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { MdDone } from "react-icons/md";
 import "./styles.css";
+import TodoList from "./TodoList";
 
 // type uses =, interface doesn't
 // Types in TypeScript are more flexible and can define primitive, intersection, union, tuple, or different types of data, while interfaces are used to describe the shape of an object.
@@ -17,9 +18,21 @@ type Props = {
 };
 
 const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
+  const handleDone = (id: number) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+  };
+
   return (
     <form className="todos__single">
-      <span className="todos__single--text">{todo.todo}</span>
+      {todo.isDone ? (
+        <s className="todos__single--text">{todo.todo}</s>
+      ) : (
+        <span className="todos__single--text">{todo.todo}</span>
+      )}
       <div>
         <span className="icon">
           <AiFillEdit />
@@ -28,7 +41,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
           <AiFillDelete />
         </span>
         <span className="icon">
-          <MdDone />
+          <MdDone onClick={() => handleDone(todo.id)} />
         </span>
       </div>
     </form>
