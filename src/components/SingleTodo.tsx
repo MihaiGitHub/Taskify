@@ -40,7 +40,14 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
         <span className="todos__single--text">{todo.todo}</span>
       )}
       <div>
-        <span className="icon">
+        <span
+          className="icon"
+          onClick={() => {
+            if (!edit && todo.isDone) {
+              setEdit(!edit);
+            }
+          }}
+        >
           <AiFillEdit />
         </span>
         <span className="icon">
