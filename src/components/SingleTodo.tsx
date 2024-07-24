@@ -35,7 +35,11 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
   return (
     <form className="todos__single">
       {edit ? (
-        <input value={editTodo} />
+        <input
+          value={editTodo}
+          onChange={(e) => setEditTodo(e.target.value)}
+          className="todos__single--text"
+        />
       ) : todo.isDone ? (
         <s className="todos__single--text">{todo.todo}</s>
       ) : (
