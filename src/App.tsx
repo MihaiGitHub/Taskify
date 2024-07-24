@@ -5,7 +5,7 @@ import TodoList from "./components/TodoList";
 import { Todo } from "./model";
 
 const App: React.FC = () => {
-  const [todo, setTodo] = useState<string | number>("");
+  const [todo, setTodo] = useState<string>("");
 
   // create array of type Todo interface
   const [todos, setTodos] = useState<Todo[]>([]);

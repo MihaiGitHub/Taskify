@@ -3,8 +3,8 @@ import "./styles.css";
 
 // setTodo type gotten from hovering over it in App.tsx
 interface Props {
-  todo: string | number;
-  setTodo: React.Dispatch<React.SetStateAction<string | number>>;
+  todo: string;
+  setTodo: React.Dispatch<React.SetStateAction<string>>;
   handleAdd: (e: React.FormEvent) => void;
 }
 
