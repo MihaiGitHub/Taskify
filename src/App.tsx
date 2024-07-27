@@ -3,6 +3,7 @@ import "./App.css";
 import InputField from "./components/InputField";
 import TodoList from "./components/TodoList";
 import { Todo } from "./model";
+// also need to install the type file; click on DT next to name on npmjs.org
 import { DragDropContext } from "react-beautiful-dnd";
 
 const App: React.FC = () => {
